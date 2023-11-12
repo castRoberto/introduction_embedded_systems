@@ -62,4 +62,22 @@ void print_array (unsigned char* ptr, int len) {
 
 void print_statistics (unsigned char* ptr, int len) {
     
+    std::string out_str;
+
+    int median  = find_median (ptr, len);
+    int mean    = find_mean (ptr, len);
+    int max     = find_maximum (ptr, len);
+    int min     = find_minimum (ptr, len);
+
+    out_str.append ("[stats.print_statistics]: median {");
+    out_str.append (std::to_string (median));
+    out_str.append ("}, mean {");
+    out_str.append (std::to_string (mean));
+    out_str.append ("}, max {");
+    out_str.append (std::to_string (max));
+    out_str.append ("}, min {");
+    out_str.append (std::to_string (min));
+    out_str.append ("}.");
+
+    LOG(out_str);
 }
