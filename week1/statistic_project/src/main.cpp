@@ -10,8 +10,14 @@
  * the necessary library inclusions for calculations.
  *******************************************************************************/
 
+#include "../data/data_array.h"
+#include "../src/statistics_tool/stats.h"
 
 int main (int argc, char* argv []) {
+
+    print_array (numbers, SIZE);
+
+    print_statistics (numbers, SIZE);
 
     return 0;
 }
