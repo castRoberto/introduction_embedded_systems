@@ -19,6 +19,15 @@ int main (int argc, char* argv[]) {
 
     try {
 
+        /* Median test */
+        if (find_median (numbers, SIZE) != result_tests::median) {
+
+            throw "[find_median]: Error calculating the median of the data";
+
+        } else {
+            LOG("[find_median]: Successful test!");
+        }
+
 
         /* Mean test */
         if (find_mean (numbers, SIZE) != result_tests::mean) {
