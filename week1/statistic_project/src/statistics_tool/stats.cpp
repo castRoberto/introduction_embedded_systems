@@ -24,7 +24,26 @@ void copy_array (unsigned char* original, unsigned char* copy, int len) {
 
 int find_median (unsigned char* ptr, int len) {
 
-    return NULL;
+    unsigned char tmp_data[len];
+
+    int median = 0;
+
+    copy_array (ptr, tmp_data, len);
+
+    sort_array (tmp_data, len);
+
+    if ((len % 2) == 0) {
+
+        median = (tmp_data[(len / 2) - 1] + tmp_data[(len / 2)]) / 2;
+
+    } else {
+        
+        median = tmp_data[(len + 1) / 2 - 1];
+
+    }
+
+    return median;
+
 }
 
 
