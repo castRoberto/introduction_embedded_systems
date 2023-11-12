@@ -19,6 +19,7 @@ int main (int argc, char* argv[]) {
 
     try {
 
+        /* Mean test */
         if (find_mean (numbers, SIZE) != 93) {
 
             throw "[find_mean]: Error calculating the mean of the data";
@@ -29,6 +30,19 @@ int main (int argc, char* argv[]) {
 
         /* Print statistics test */
         print_statistics (numbers, SIZE);
+
+        /* Sort test */
+        sort_array (numbers, SIZE);
+
+        for (int i = SIZE - 1; i >= 0; i--) {
+
+            if (numbers[i] != SIZE - i) {
+                throw "[sort_array]: Error sorting the data array";
+            }
+
+        }
+
+        LOG("[sort_array]: Successful test!");
 
     } catch(const char* error) {
         LOG_ERR(error);
