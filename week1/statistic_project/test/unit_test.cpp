@@ -13,12 +13,19 @@
 
 #include "../util/common.h"
 #include "../data/data_array.h"
+#include "../src/statistics_tool/stats.h"
 
 int main (int argc, char* argv[]) {
 
     try {
 
-        throw "No tests implemented!";
+        if (find_mean (numbers, SIZE) != 93) {
+
+            throw "[find_mean]: Error calculating the mean of the data";
+
+        } else {
+            LOG("[find_mean]: Successful test!");
+        }
 
     } catch(const char* error) {
         LOG_ERR(error);
