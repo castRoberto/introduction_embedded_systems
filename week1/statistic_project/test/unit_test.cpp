@@ -31,9 +31,9 @@ int main (int argc, char* argv[]) {
         /* Sort test */
         sort_array (numbers, SIZE);
 
-        for (int i = 1; i <= SIZE; i++) {
+        for (int i = SIZE - 1; i >= 0; i--) {
 
-            if (numbers[i - 1] != i) {
+            if (numbers[i] != SIZE - i) {
                 throw "[sort_array]: Error sorting the data array";
             }
 

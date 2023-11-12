@@ -132,12 +132,29 @@ void merge_sort (unsigned char* ptr, int p, int r) {
 }
 
 
+void reverse_array (unsigned char* ptr, int len) {
+
+    int i, j;
+    unsigned char tmp;
+
+    for (i = 0, j = len -1; i < (len / 2); i++, j--) {
+
+        tmp = ptr[i];
+        ptr[i] = ptr[j];
+        ptr[j] = tmp;
+    }
+
+}
+
+
 void sort_array (unsigned char* ptr, int len) {
 
     int p = 0;
     int r = len - 1;
 
     merge_sort (ptr, p, r);
+
+    reverse_array (ptr, len);
 
 }
 
