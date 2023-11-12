@@ -41,7 +41,10 @@ int find_mean (unsigned char* ptr, int len) {
 
 int find_maximum (unsigned char* ptr, int len) {
 
-    return NULL;
+    sort_array (ptr, len);
+
+    return (ptr[0]);
+
 }
 
 
