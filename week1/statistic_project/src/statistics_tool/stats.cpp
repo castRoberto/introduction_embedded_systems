@@ -51,13 +51,99 @@ int find_minimum (unsigned char* ptr, int len) {
 }
 
 
+void merge (unsigned char* ptr, int p, int q, int r) {
+
+    // Create L ← A[p..q] and R ← A[q+1..r]
+    int n1 = q - p + 1;
+    int n2 = r - q;
+
+    unsigned char L[n1], R[n2];
+
+    for (int i = 0; i < n1; i++) {
+
+        L[i] = ptr[p + i];
+
+    }
+
+    for (int j = 0; j < n2; j++) {
+
+        R[j] = ptr[q + 1 + j];
+
+    }
+
+    // Maintain current index of sub-arrays and main array
+    int i = 0;
+    int j = 0;
+    int k = p;
+
+    // Until we reach either end of either L or M, pick larger among
+    // elements L and M and place them in the correct position at A[p..r]
+    while (i < n1 && j < n2) {
+
+        if (L[i] <= R[j]) {
+
+            ptr[k] = L[i];
+            i++;
+
+        } else {
+
+            ptr[k] = R[j];
+            j++;
+
+        }
+
+        k++;
+
+    }
+
+    // When we run out of elements in either L or M,
+    // pick up the remaining elements and put in A[p..r]
+    while (i < n1) {
+
+        ptr[k] = L[i];
+        i++;
+        k++;
+
+    }
+
+    while (j < n2) {
+
+        ptr[k] = R[j];
+        j++;
+        k++;
+
+    }
+
+}
+
+
+void merge_sort (unsigned char* ptr, int p, int r) {
+
+    if (p < r) {
+
+        int q = (p + r) / 2;
+
+        merge_sort (ptr, p, q);
+        merge_sort (ptr, q + 1, r);
+        merge (ptr, p, q, r);
+
+    }
+
+}
+
+
 void sort_array (unsigned char* ptr, int len) {
+
+    int p = 0;
+    int r = len - 1;
+
+    merge_sort (ptr, p, r);
 
 }
 
 
 void print_array (unsigned char* ptr, int len) {
-
+    
 }
 
 void print_statistics (unsigned char* ptr, int len) {
