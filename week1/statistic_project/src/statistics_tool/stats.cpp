@@ -11,6 +11,16 @@
 
 #include "stats.h"
 
+void copy_array (unsigned char* original, unsigned char* copy, int len) {
+
+    for (int i = 0; i < len; i++) {
+
+        copy[i] = original[i];
+        
+    }
+
+}
+
 
 int find_median (unsigned char* ptr, int len) {
 
