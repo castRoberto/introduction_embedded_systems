@@ -14,8 +14,9 @@
 #ifndef _STATS_H_
 #define _STATS_H_
 
-#include <iostream>
 #include <string.h>
+
+#include "../../util/common.h"
 
 #define LOG(x) std::cout << x << std::endl;
 
