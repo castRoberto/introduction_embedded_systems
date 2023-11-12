@@ -18,6 +18,8 @@
 int main (int argc, char* argv[]) {
 
     try {
+        /* Print array test */
+        print_array (numbers, SIZE);
 
         /* Median test */
         if (find_median (numbers, SIZE) != result_tests::median) {
@@ -25,7 +27,7 @@ int main (int argc, char* argv[]) {
             throw "[find_median]: Error calculating the median of the data";
 
         } else {
-            LOG("[find_median]: Successful test!");
+            LOG_LN("[find_median]: Successful test!");
         }
 
 
@@ -35,7 +37,7 @@ int main (int argc, char* argv[]) {
             throw "[find_mean]: Error calculating the mean of the data";
 
         } else {
-            LOG("[find_mean]: Successful test!");
+            LOG_LN("[find_mean]: Successful test!");
         }
 
 
@@ -45,7 +47,7 @@ int main (int argc, char* argv[]) {
             throw "[find_maximum]: Error calculating the maximun value of the data";
 
         } else {
-            LOG("[find_maximum]: Successful test!");
+            LOG_LN("[find_maximum]: Successful test!");
         }
 
 
@@ -55,7 +57,7 @@ int main (int argc, char* argv[]) {
             throw "[find_minimum]: Error calculating the minimun value of the data";
 
         } else {
-            LOG("[find_minimum]: Successful test!");
+            LOG_LN("[find_minimum]: Successful test!");
         }
 
 
@@ -70,7 +72,7 @@ int main (int argc, char* argv[]) {
 
         }
 
-        LOG("[sort_array]: Successful test!");
+        LOG_LN("[sort_array]: Successful test!");
 
 
          /* Print statistics test */

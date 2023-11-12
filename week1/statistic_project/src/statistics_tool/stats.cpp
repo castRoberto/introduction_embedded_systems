@@ -203,7 +203,22 @@ void sort_array (unsigned char* ptr, int len) {
 
 
 void print_array (unsigned char* ptr, int len) {
+
+    int columns = 8;
     
+    LOG_LN("\n[print_array]: [");
+
+    for (int i = 0; i < len; i++) {
+        LOG("\t");
+        LOG(std::to_string(ptr[i]));
+
+        if (((i + 1) % columns) == 0) {
+            LOG_LN("");
+        }
+    }
+
+    LOG_LN("]\n");
+
 }
 
 void print_statistics (unsigned char* ptr, int len) {
@@ -225,5 +240,5 @@ void print_statistics (unsigned char* ptr, int len) {
     out_str.append (std::to_string (min));
     out_str.append ("}.");
 
-    LOG(out_str);
+    LOG_LN(out_str);
 }
