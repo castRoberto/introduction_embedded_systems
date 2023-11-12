@@ -18,8 +18,6 @@
 
 #include "../../util/common.h"
 
-#define LOG(x) std::cout << x << std::endl;
-
 /**
  * @brief Calculate the median of a matrix
  *
