@@ -20,7 +20,21 @@ int find_median (unsigned char* ptr, int len) {
 
 int find_mean (unsigned char* ptr, int len) {
 
-    return NULL;
+    int i;
+    int average = 0;
+
+    if (ptr == NULL) { return 0; }
+
+    if (len <= 0) { len = 1; }
+
+    for (i = 0; i < len; i++) {
+
+        average += *ptr;
+        ptr++;
+
+    }
+
+    return (average / len);
 
 }
 
