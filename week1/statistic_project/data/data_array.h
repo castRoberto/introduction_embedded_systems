@@ -16,6 +16,15 @@
 /* Size of the Data Set */
 #define SIZE                (40)
 
+namespace result_tests {
+
+    const int median = 20;
+    const int mean = 20;
+    const int max = 40;
+    const int min = 1;
+
+};
+
 unsigned char numbers[SIZE] = {
 
     28, 5,  11, 33, 20, 38, 7,  23, 
