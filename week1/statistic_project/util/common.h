@@ -15,7 +15,9 @@
 
 #include <iostream>
 
-#define LOG(x) std::cout << x << std::endl;
+#define LOG_LN(x) std::cout << x << std::endl;
+
+#define LOG(x) std::cout << x;
 
 #define LOG_ERR(x) std::cerr << x << std::endl;
 
