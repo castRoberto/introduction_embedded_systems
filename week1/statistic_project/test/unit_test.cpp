@@ -30,6 +30,16 @@ int main (int argc, char* argv[]) {
         }
 
 
+        /* Get maximun test */
+        if (find_maximum (numbers, SIZE) != result_tests::max) {
+
+            throw "[find_maximum]: Error calculating the maximun value of the data";
+
+        } else {
+            LOG("[find_maximum]: Successful test!");
+        }
+
+
         /* Sort test */
         sort_array (numbers, SIZE);
 
