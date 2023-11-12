@@ -83,7 +83,14 @@ int find_maximum (unsigned char* ptr, int len) {
 
 int find_minimum (unsigned char* ptr, int len) {
 
-    return NULL;
+    unsigned char tmp_data[len];
+
+    copy_array (ptr, tmp_data, len);
+
+    sort_array (tmp_data, len);
+
+    return (tmp_data[len - 1]);
+
 }
 
 
