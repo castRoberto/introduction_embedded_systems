@@ -49,6 +49,16 @@ int main (int argc, char* argv[]) {
         }
 
 
+        /* Get minimun test */
+        if (find_minimum (numbers, SIZE) != result_tests::min) {
+
+            throw "[find_minimum]: Error calculating the minimun value of the data";
+
+        } else {
+            LOG("[find_minimum]: Successful test!");
+        }
+
+
         /* Sort test */
         sort_array (numbers, SIZE);
 
