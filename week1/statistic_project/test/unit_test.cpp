@@ -27,6 +27,9 @@ int main (int argc, char* argv[]) {
             LOG("[find_mean]: Successful test!");
         }
 
+        /* Print statistics test */
+        print_statistics (numbers, SIZE);
+
     } catch(const char* error) {
         LOG_ERR(error);
     }
