@@ -15,6 +15,7 @@
 
 /* Size of the Data Set */
 #define SIZE                (40)
+#define HOLA
 
 namespace result_tests {
 
@@ -23,7 +24,7 @@ namespace result_tests {
     const int max = 40;
     const int min = 1;
 
-};
+}
 
 unsigned char numbers[SIZE] = {
 
