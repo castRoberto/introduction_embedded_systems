@@ -92,35 +92,37 @@ else
 endif
 
 
+###########################################################
+# Phony targets
+###########################################################
+.PHONY: all main-build dirs files clean
 
-.PHONY: all main-build dirs files clean							# Phony targets
 
 all: main_build
 
 main_build: $(DEBUG_DIR)/$(BUILD_ARTIFACT_NAME) $(RELEASE_DIR)/$(BUILD_ARTIFACT_NAME) | dirs #secundary-outputs
 
-
-# ------------------------------------------------------------------- #
-#				  	 			Debug target			 			  #
-# ------------------------------------------------------------------- #
+#######################################################################
+# Debug target
+#######################################################################
 $(DEBUG_DIR)/$(BUILD_ARTIFACT_NAME): $(CPP_DEBUG_OBJS) $(C_DEBUG_OBJS)
 > $(CXX) -g $^ -o $@ $(CPP_FLAGS)
 ifeq ($(BUILD_MODE),CROSS)
 > @echo "Recipe for debug cross compilation, not defined :("
 endif
 
-# ------------------------------------------------------------------------- #
-#				 		 			Release target							#
-# ------------------------------------------------------------------------- #
+#############################################################################
+# Release target
+#############################################################################
 $(RELEASE_DIR)/$(BUILD_ARTIFACT_NAME): $(CPP_RELEASE_OBJS) $(C_RELEASE_OBJS)
 > $(CXX) $^ -o $@ $(CPP_FLAGS) $(OPTIMIZATION)
 ifeq ($(BUILD_MODE),CROSS)
 > @echo "Recipe for release cross compilation, not defined :("
 endif
 
-# --------------------------------------------- #
-#					CPP targets					#
-# --------------------------------------------- #
+#################################################
+# CPP targets
+#################################################
 $(DEBUG_DIR)/%.o: %.cpp | dirs
 > $(CXX) -g $< -o $@ -c $(CPP_FLAGS)
 
@@ -129,16 +131,18 @@ $(RELEASE_DIR)/%.o: %.cpp | dirs
 
 
 
-# --------------------------------------------- #
-#					C targets					#
-# --------------------------------------------- #
+#################################################
+# C targets
+#################################################
 $(DEBUG_DIR)/%.o: %.c | dirs
 > $(CC) -g $< -o $@ -c $(C_FLAGS)
 
 $(RELEASE_DIR)/%.o: %.c | dirs
 > $(CC) $< -o $@ -c $(C_FLAGS) $(OPTIMIZATION)
 
+#################################################
 # Include dependencies
+#################################################
 -include $(DEBUG_DIR)/*.d
 -include $(RELEASE_DIR)/*.d
 
@@ -160,7 +164,6 @@ files:
 > @echo $(C_RELEASE_OBJS)
 
 clean:
-> @$(RM) $(DEBUG_DIR)/*.o $(DEBUG_DIR)/*.exe $(DEBUG_DIR)/*.d
-> @$(RM) $(RELEASE_DIR)/*.o $(RELEASE_DIR)/*.exe $(RELEASE_DIR)/*.d
+> @$(RM) $(DEBUG_DIR)/* $(RELEASE_DIR)/*
 > @echo "Clean!"
 > @tree .

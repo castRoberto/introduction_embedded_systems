@@ -1,0 +1,4 @@
+
+
+- Core Independet Peripherals (CIP):
+    Perifericos que no necesitan de la intervención de la CPU
